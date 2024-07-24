@@ -28,15 +28,10 @@ canvas {
   margin: 5px 0;
 }
 
-#drop-zone {
-  width: 400px;
-  height: 200px;
-  border: 2px dashed #ccc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin-top: 20px;
+#paste-image-button {
+  margin: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
 }
 
 #url-input-section {
