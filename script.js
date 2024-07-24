@@ -1,21 +1,29 @@
+const dropZone = document.getElementById('drop-zone');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const brightnessSlider = document.getElementById('brightness');
 const contrastFactorSlider = document.getElementById('contrastFactor');
 const brightnessValue = document.getElementById('brightness-value');
 const contrastFactorValue = document.getElementById('contrastFactor-value');
-const imageUrlInput = document.getElementById('image-url');
-const loadUrlButton = document.getElementById('load-url');
 const pasteImageButton = document.getElementById('paste-image-button');
-const errorMessage = document.getElementById('error-message');
-const urlInputSection = document.getElementById('url-input-section');
 
 let originalImage = null;
 
-loadUrlButton.addEventListener('click', () => {
-    const imageUrl = imageUrlInput.value;
-    if (imageUrl) {
-        loadImageFromUrl(imageUrl);
+dropZone.addEventListener('dragover', (event) => {
+    event.preventDefault();
+    dropZone.style.borderColor = 'blue';
+});
+
+dropZone.addEventListener('dragleave', () => {
+    dropZone.style.borderColor = '#ccc';
+});
+
+dropZone.addEventListener('drop', (event) => {
+    event.preventDefault();
+    dropZone.style.borderColor = '#ccc';
+    const file = event.dataTransfer.files[0];
+    if (file && file.type.startsWith('image/')) {
+        handleImageUpload(file);
     }
 });
 
@@ -31,7 +39,6 @@ pasteImageButton.addEventListener('click', () => {
             }
         }
     }).catch(err => {
-        showErrorMessage('Failed to read from clipboard. Please make sure you have an image copied.');
         console.error('Error reading clipboard:', err);
     });
 });
@@ -52,24 +59,6 @@ function handleImageUpload(file) {
         img.src = e.target.result;
     };
     reader.readAsDataURL(file);
-}
-
-function loadImageFromUrl(url) {
-    const img = new Image();
-    img.crossOrigin = "Anonymous"; // This is important for cross-origin images
-    img.onload = () => {
-        canvas.width = img.width;
-        canvas.height = img.height;
-        originalImage = img;
-        updateImage();
-        clearErrorMessage();
-    };
-
-    img.onerror = () => {
-        showErrorMessage('Failed to load image from URL. Please check the URL and try again.');
-    };
-
-    img.src = url;
 }
 
 function updateImage() {
@@ -106,14 +95,4 @@ function updateImage() {
 
 function truncate(value) {
     return Math.min(255, Math.max(0, value));
-}
-
-function showErrorMessage(message) {
-    errorMessage.textContent = message;
-    errorMessage.classList.remove('hidden');
-}
-
-function clearErrorMessage() {
-    errorMessage.textContent = '';
-    errorMessage.classList.add('hidden');
 }
