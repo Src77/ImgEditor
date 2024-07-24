@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Editor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="error-message" class="hidden"></div>
+  <div id="drop-zone">Drag & Drop or Copy & Paste an image here</div>
+  <div id="url-input-section" class="hidden">
+    <input type="text" id="image-url" placeholder="Enter image URL here">
+    <button id="load-url">Load Image</button>
+  </div>
+  <canvas id="canvas"></canvas>
+  <div class="controls">
+    <label for="brightness">Brightness Reduction: <span id="brightness-value">0.5</span></label>
+    <input type="range" id="brightness" min="0" max="1" step="0.01" value="0.5">
+    <label for="contrastFactor">Contrast Factor: <span id="contrastFactor-value">6</span></label>
+    <input type="range" id="contrastFactor" min="1" max="10" step="0.1" value="6">
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

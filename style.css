@@ -1,0 +1,55 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.hidden {
+  display: none;
+}
+
+#error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+canvas {
+  border: 1px solid black;
+  margin-top: 20px;
+}
+
+.controls {
+  margin-top: 20px;
+}
+
+.controls label {
+  display: block;
+  margin: 5px 0;
+}
+
+#drop-zone {
+  width: 400px;
+  height: 200px;
+  border: 2px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#url-input-section {
+  margin-top: 20px;
+}
+
+#image-url {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+#load-url {
+  padding: 10px 20px;
+  font-size: 16px;
+}
