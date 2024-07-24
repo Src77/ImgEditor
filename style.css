@@ -15,8 +15,8 @@ body {
 }
 
 .drop-zone {
-  width: 300px; /* Increased width */
-  height: 150px; /* Increased height */
+  width: 400px; /* Increased width */
+  height: 200px; /* Increased height */
   border: 2px dashed #ccc;
   display: flex;
   align-items: center;
@@ -26,7 +26,7 @@ body {
 }
 
 .paste-button {
-  width: 300px; /* Set the width to match the drop zone */
+  width: 400px; /* Set the width to match the drop zone */
   padding: 10px 20px; /* Shorten the button vertically */
   font-size: 16px;
   cursor: pointer;
@@ -45,15 +45,26 @@ canvas {
 
 .controls {
   display: flex;
-  flex-direction: row;
+  flex-direction: column; /* Change to column to stack sliders vertically */
   gap: 20px;
   background: rgba(255, 255, 255, 0.8);
   padding: 10px;
   border-radius: 10px;
+  align-items: center; /* Center align the sliders */
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.large-slider {
+  width: 600px; /* Increase the width of the sliders */
 }
 
 .controls label {
-  margin-right: 10px;
+  margin-bottom: 10px; /* Add space below the label */
 }
 
 .controls input[type="range"] {

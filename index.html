@@ -14,10 +14,14 @@
     <button id="paste-image-button" class="paste-button">Paste Image from Clipboard</button>
   </div>
   <div class="controls">
-    <label for="brightness">Brightness: <span id="brightness-value">0.5</span></label>
-    <input type="range" id="brightness" min="0" max="1" step="0.01" value="0.5">
-    <label for="contrastFactor">Contrast: <span id="contrastFactor-value">6</span></label>
-    <input type="range" id="contrastFactor" min="1" max="10" step="0.1" value="6">
+    <div class="slider-container">
+      <label for="brightness">Brightness: <span id="brightness-value">0.5</span></label>
+      <input type="range" id="brightness" min="0" max="1" step="0.01" value="0.5" class="large-slider">
+    </div>
+    <div class="slider-container">
+      <label for="contrastFactor">Contrast: <span id="contrastFactor-value">6</span></label>
+      <input type="range" id="contrastFactor" min="1" max="10" step="0.1" value="6" class="large-slider">
+    </div>
   </div>
   <div id="canvas-container">
     <canvas id="canvas"></canvas>
